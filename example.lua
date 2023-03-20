@@ -15,6 +15,6 @@ local function RandomSay() -- randomsay func
   sayMessage(random_sentence.generate(custom_parts))
  end
 
-while wait(1) do
+while wait(3) do
 RandomSay()
 end
