@@ -1,16 +1,20 @@
-local random_sentence = loadstring(game:HttpGet("https://raw.githubusercontent.com/Queered/killSayLib/main/lib.lua"))()
+local sayMessage = function(msg, target) game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, target or "ALL") end
 
--- gen a random sentence using the default parts table
-local sentence1 = random_sentence.generate()
-print(sentence1)
+local random_sentence = loadstring(game:HttpGet("https://raw.githubusercontent.com/Queered/killSayLib/main/lib.lua"))()
 
 -- gen a random sentence using custom parts
 local custom_parts = {
-  {name = "adjective", options = {"big", "small", "red"}},
-  {name = "noun", options = {"cat", "dog", "bird"}},
-  {name = "verb", options = {"runs", "jumps", "flies"}},
-  {name = "preposition", options = {"over", "under", "through"}},
-  {name = "article", options = {"the", "a"}}
+  {name = "adjective", options = {"buy", "cop", "get"}},
+  {name = "noun", options = {"genechair", "chairgene", "geneware"}},
+  {name = "verb", options = {"because", "cus", "bcs"}},
+  {name = "preposition", options = {"it is best", "it is coolest", "it is hot"}},
+  {name = "article", options = {"💯", "💀","😇","😍"}}
 }
-local sentence2 = random_sentence.generate(custom_parts)
-print(sentence2)
+
+local function RandomSay() -- randomsay func
+  sayMessage(random_sentence.generate(custom_parts))
+ end
+
+while wait(1) do
+RandomSay()
+end
